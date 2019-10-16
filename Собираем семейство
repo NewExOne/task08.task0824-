@@ -14,23 +14,27 @@ public class Solution {
         ArrayList<Human> parentsChildren = new ArrayList<>();
         ArrayList<Human> mother = new ArrayList<>();
         ArrayList<Human> father = new ArrayList<>();
+
         humans.add(new Human("grMa1", false, 98, father));
         humans.add(new Human("grMa2", false, 98, mother));
         humans.add(new Human("grPa1", true, 98, father));
         humans.add(new Human("grPa2", true, 98, mother));
         humans.add(new Human("father", true, 50, parentsChildren));
         humans.add(new Human("mother", false, 48, parentsChildren));
-        humans.add(new Human("daughter", false, 18));
-        humans.add(new Human("son", true, 16));
-        humans.add(new Human("son", true, 20));
+        humans.add(new Human("daughter", false, 18, new ArrayList<>()));
+        humans.add(new Human("son", true, 16, new ArrayList<>()));
+        humans.add(new Human("son", true, 20, new ArrayList<>()));
+
         parentsChildren.add(humans.get(6));
         parentsChildren.add(humans.get(7));
         parentsChildren.add(humans.get(8));
-        mother.add(humans.get(4));
-        father.add(humans.get(5));
 
-        for (int i = 0; i < humans.size(); i++) {
-            System.out.println(humans.get(i).toString());
+        mother.add(humans.get(4));
+
+        father.add(humans.get(5));
+        
+        for (Object human : humans){
+            System.out.println(human.toString());
         }
     }
 
@@ -46,13 +50,6 @@ public class Solution {
             this.sex = sex;
             this.age = age;
             this.children = children;
-        }
-
-        public Human(String name, boolean sex, int age){
-            this.name = name;
-            this.sex = sex;
-            this.age = age;
-            this.children = new ArrayList<Human>();
         }
 
 
